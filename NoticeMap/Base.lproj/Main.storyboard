@@ -25,18 +25,30 @@
                                     <outletCollection property="gestureRecognizers" destination="kqc-em-TI0" appends="YES" id="ALI-4n-Z1N"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osv-O5-FJT">
+                                <rect key="frame" x="217" y="571" width="166" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="KeY-a5-WpF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="14B-zV-jb3" secondAttribute="trailing" id="2vg-dC-R6O"/>
                             <constraint firstAttribute="trailing" secondItem="14B-zV-jb3" secondAttribute="trailing" id="Kzm-W3-Dyx"/>
                             <constraint firstItem="14B-zV-jb3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="U42-FT-yRX"/>
+                            <constraint firstItem="Osv-O5-FJT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VY9-Q1-QZs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="14B-zV-jb3" secondAttribute="bottom" id="lBo-1Q-vaU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Osv-O5-FJT" secondAttribute="bottom" constant="8" id="lde-Mj-ctu"/>
                             <constraint firstItem="14B-zV-jb3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qeC-Bz-4gF"/>
                             <constraint firstItem="14B-zV-jb3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="suV-el-AMp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distance" destination="Osv-O5-FJT" id="eik-4t-9UF"/>
                         <outlet property="mapView" destination="14B-zV-jb3" id="Uck-dH-piW"/>
                     </connections>
                 </viewController>
@@ -47,6 +59,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="380" y="320"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,7 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distance: UILabel!
     
     var LocationManager: CLLocationManager!
     
@@ -97,7 +98,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //現在地とピンとの距離を計算（単位はメートルっぽい）
         let dist = pinLoc.distanceFromLocation(nowLoc)
         
-        print(dist)
+        distance.text = String(round(dist)) + "m"
     }
     
     //長押しした時に、ピンを立てる
