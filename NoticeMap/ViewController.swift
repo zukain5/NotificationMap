@@ -97,7 +97,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //現在地とピンとの距離を計算（単位はメートルっぽい）
         let dist = pinLoc.distanceFromLocation(nowLoc)
         
-        print(dist)
+        //距離が100mより小さかったら通知する。
+        
     }
     
     //長押しした時に、ピンを立てる
