@@ -131,13 +131,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     /*
-    現状の問題点
-    ・現在地を示す青色の丸がピンになっちゃった
-    ・長押しした時に取得するピンの位置の情報をfunc locationManagerで使いたい
-    →クラスのプロパティとして座標を登録しておく配列を作ればいい気がした
-    */
-    
-    /*
     目指す目標
     ・ピンを複数個登録できるようにする。
     ・登録したピンの座標を端末に保存する。
