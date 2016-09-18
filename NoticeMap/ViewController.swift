@@ -20,6 +20,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     var pin: MKPointAnnotation!
     
+    var locationRegion: MKCoordinateRegion!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -61,14 +63,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let lonDist: CLLocationDistance = 1000
         
         //これらの情報を全部まとめたRegionを作成
-        let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(firstCoordinate, latDist, lonDist)
-        
-        //これをMapに反映
-        mapView.setRegion(region, animated: true)
+        locationRegion = MKCoordinateRegionMakeWithDistance(firstCoordinate, latDist, lonDist)
         
         //ピンの座標をとりあえず東京駅にしとく
         pinCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
+    
+    //右下のボタンが置かれた時、現在地を中心にする。
+    @IBAction func locationCenter(sender: AnyObject) {
+        mapView.setRegion(locationRegion, animated: true)
+    }
+    
     
     //GPSから値を取得した時に呼び出されるメソッド
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
@@ -83,10 +88,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let lonDist: CLLocationDistance = 1000
         
         //これらの情報を全部まとめたRegionを作成
-        let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(nowLocation, latDist, lonDist)
-        
-        //これをMapに反映
-        mapView.setRegion(region, animated: true)
+        locationRegion = MKCoordinateRegionMakeWithDistance(nowLocation, latDist, lonDist)
         
         //現在地の緯度と経度（CLLocationDegrees）からCLLocation型を生成
         let nowLoc:CLLocation = CLLocation(latitude: ido, longitude: keido)
@@ -96,8 +98,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         //現在地とピンとの距離を計算（単位はメートルっぽい）
         let dist = pinLoc.distanceFromLocation(nowLoc)
-        
-        //距離が100mより小さかったら通知する。
         
     }
     
